@@ -1,40 +1,26 @@
-// explicit types
-let character: string;
-let age: number;
-let isLoggedIn: boolean;
+let age: any = 25;
 
-// age='luigi' ; //not possible
+age = true;
+console.log(age)
 
-age = 30;
+age = 'hello';
+console.log(age)
 
-//isLoggedIn = 25;  //Not possible
-isLoggedIn = true;
+age = { name: 'luigi' }
+console.log(age)
 
-//arrays 
-let ninjas: string[] = [];
 
-//ninjas = [10,30] // Not posisble
-ninjas.push('shaun'); // Not possible also but no  error here-> Browser error
+let mixed: any[] = [];
+mixed.push(5);
+mixed.push('mario');
+mixed.push(false);
+console.log(mixed);
 
-//union types-> for mixed array
-let mixed: (string | number | boolean)[] = []
-mixed.push('hello')
-mixed.push(20);
-mixed.push(false)
-console.log(mixed)
+let ninja: { name: any, age: any }
 
-let uid: string | number;
-uid = '123';
-uid = 123
-//objects
-let ninjaOne: object;
-ninjaOne = { name: 'yoshi,age:30' };
-//ninjaOne = []
+ninja = { name: 'yoshi', age: '25' }
+console.log(ninja)
 
-let ninjaTwo: {
-    name: string,
-    age: number,
-    beltColor: string
-}
+ninja = { name: 'yoshi', age: 24 }
+console.log(ninja)
 
-ninjaTwo = { name: 'mario', age: 20, beltColor: 'black' } // can not add extra property 
