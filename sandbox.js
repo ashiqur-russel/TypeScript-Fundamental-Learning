@@ -1,15 +1,27 @@
-//Arrays
-var names = ['luigi', 'mario', 'yoshi'];
-names.push('toad');
-console.log(names);
-var mixed = ['ken', 4, 'chun-li', 8, 9];
-mixed.push('ryu');
-mixed.push(10);
-mixed[0] = 3;
+// explicit types
+var character;
+var age;
+var isLoggedIn;
+// age='luigi' ; //not possible
+age = 30;
+//isLoggedIn = 25;  //Not possible
+isLoggedIn = true;
+//arrays 
+var ninjas = [];
+//ninjas = [10,30] // Not posisble
+ninjas.push('shaun'); // Not possible also but no  error here-> Browser error
+//union types-> for mixed array
+var mixed = [];
+mixed.push('hello');
+mixed.push(20);
+mixed.push(false);
 console.log(mixed);
-//Objects
-var ninja = {
-    name: 'mario',
-    belt: 'black',
-    age: 30
-};
+var uid;
+uid = '123';
+uid = 123;
+//objects
+var ninjaOne;
+ninjaOne = { name: 'yoshi,age:30' };
+//ninjaOne = []
+var ninjaTwo;
+ninjaTwo = { name: 'mario', age: 20, beltColor: 'black' }; // can not add extra property 
