@@ -4,7 +4,7 @@ export class Invoice {
         this.details = details;
         this.amount = amount;
     }
-    fromat() {
+    format() {
         return `${this.client} owes €${this.amount} for ${this.details}`;
     }
 }

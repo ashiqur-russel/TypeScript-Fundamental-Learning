@@ -1,30 +1,17 @@
-//Interface 
-interface Isperson {
-    name: string;
-    age: number;
-    speak(a: string): void;
-    spend(a: number): number;
-}
+import { Invoice } from "./classes/invoice.js";
+import { Payment } from "./classes/Payment.js";
+import { HasFormatter } from "./interfaces/HasFormatter.js";
 
-const me: Isperson = {
-    name: 'shaun',
+/* let docOne: HasFormatter;
+let docTwo: HasFormatter;
 
-    age: 30,
-    speak(text: string): void {
-        console.log(text);
-    },
-    spend(amount: number): number {
-        console.log('I spent', amount);
-        return amount;
-    }
-}
+docOne = new Invoice('yoshi', 'web work', 250);
+docTwo = new Payment('mario', 'plumbing work', 200);
 
-const greetPerson = (person: Isperson) => {
-    console.log('Hello ', person.name)
-}
+let docs: HasFormatter[] = [];
+docs.push(docOne);
+docs.push(docTwo);
 
-greetPerson(me)
-import { Invoice } from './classes/invoice.js'
 
 const invOne = new Invoice('mario', 'work on website development', 400);
 const invTwo = new Invoice('Luigi', 'work as Backend development', 600);
@@ -32,11 +19,12 @@ const invTwo = new Invoice('Luigi', 'work as Backend development', 600);
 
 let invoices: Invoice[] = [];
 invoices.push(invOne);
-invoices.push(invTwo);
+invoices.push(invTwo); */
 
-invoices.forEach(inv => {
-    console.log(inv.client, inv.amount, inv.fromat())
+/* invoices.forEach(inv => {
+    console.log(inv.client, inv.amount, inv.format())
 })
+ */
 
 const form = document.querySelector('.new-item-form') as HTMLFormElement;
 
@@ -50,12 +38,15 @@ const amount = document.querySelector('#amount') as HTMLInputElement;
 
 form.addEventListener('submit', (e: Event) => {
     e.preventDefault();
-    console.log(
-        type.value,
-        tofrom.value,
-        details.value,
-        amount.valueAsNumber
-    )
+
+    let doc: HasFormatter;
+    if (type.value === 'invoice') {
+        doc = new Invoice(tofrom.value, details.value, amount.valueAsNumber);
+    } else {
+        doc = new Payment(tofrom.value, details.value, amount.valueAsNumber);
+
+    }
+    console.log(doc);
 })
 
 
