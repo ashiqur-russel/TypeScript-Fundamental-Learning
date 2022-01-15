@@ -1,18 +1,15 @@
-let greet: Function;
-greet = () => {
-    console.log("hello ")
-}
-greet();
+type StringorNum = string | number;
+type objectWithName = { name: string, uid: StringorNum }
 
-const add = (a: number, b: number, c: number | string = 10): void => { //  default parameter put on last
-    console.log(a + b);
-    console.log(c)
+const logDetails = (uid: StringorNum, item: string) => {
+
+    console.log(`${item} has a uid of ${uid}`);
 }
 
-add(5, 6, 20)
+logDetails(123, "test");
 
-const minus = (a: number, b: number) => {
-    return a + b;
+const greet = (user: objectWithName) => {
+    console.log(`${user.name} says Hello`);
 }
 
-let result = minus(10, 7)
+greet({ name: 'me', uid: 123 })
